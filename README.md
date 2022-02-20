@@ -11,7 +11,7 @@ This library is build to fulfill the requirement of tag caching system
 
 ### Installation
 ```
-composer require mufaadsoft/TagCache
+composer require msolutions/tag-cache
 ```
 
 ### Implementing
