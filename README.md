@@ -17,7 +17,7 @@ composer require msolutions/tag-cache
 ### Implementing
 
 ```
-use MM\TagCache\TagCache;
+use MSL\TagCache;
 
 //caching query or any other data
 

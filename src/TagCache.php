@@ -1,6 +1,6 @@
 <?php
 
-namespace MM\TagCache;
+namespace MSL;
 
 /**
  * V 2.0

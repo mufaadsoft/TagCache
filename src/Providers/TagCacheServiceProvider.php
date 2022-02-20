@@ -1,6 +1,6 @@
 <?php
 
-namespace MM\TagCache\Providers;
+namespace MSL\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
