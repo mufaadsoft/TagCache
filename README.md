@@ -5,7 +5,7 @@
 This library is build to fulfill the requirement of tag caching system
 
 ## Features
-- Storing caching data in a organize way
+- Stores caching data in a organize way
 - Auto cache expiring
 - Reducing the SQL query requests
 
