@@ -1,0 +1,37 @@
+{
+    "name": "mm/tag-cache",
+    "description": "File tag caching package",
+    "keywords": [
+        "file caching",
+        "file cache",
+        "cache",
+        "laravel cache",
+        "tag cache",
+        "tag caching",
+        "tag file caching",
+        "storage cache"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mufaad Munawwar",
+            "email": "mufaadsoft@gmail.com"
+        }
+    ],
+    "require": {
+        "php" : "^7.4|^8.0|^8.1",
+        "illuminate/filesystem": "^8.0|^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MM\\TagCache\\Providers\\TagCacheServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "MM\\TagCache\\": "src/"
+        }
+    }
+}

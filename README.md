@@ -26,9 +26,10 @@ $ttl = (60*60);//timing for expiry in seconds
 
 $result = TagCache::remember($unique_key, $ttl, function() {
     //database query fetching should be inside this function
-    $cache_data = time(); //database fetch query 
+    $cache_data = Model::get(); //database fetch query 
     return $cache_data;
 }, ["tag1", "tag2"]);
+
 ```
 
 ### Removing Cache
