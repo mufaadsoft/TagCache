@@ -1,5 +1,5 @@
 {
-    "name": "mm/tag-cache",
+    "name": "msolutions/tag-cache",
     "description": "File tag caching package",
     "keywords": [
         "file caching",
