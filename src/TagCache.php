@@ -27,13 +27,16 @@ class TagCache
         if ($time == 0 && sizeof($tags) > 0) {
             return $callback();
         }
+        if ($callback() == null) {
+            return $callback();
+        }
         $now = time();
         $ttl = ($now + $time);
         if (sizeof($tags) > 0) {
             $cache_path = self::createFolderStructure($tags, $key);
             if (file_exists($cache_path)) {
                 $verifyCache = self::technicallyGettingCacheData($cache_path, $now);
-                if(!$verifyCache){
+                if (!$verifyCache) {
                     return self::saveCache($cache_path, $callback, $ttl, $now);
                 }
                 return $verifyCache;
@@ -52,13 +55,11 @@ class TagCache
         $technical_data = self::cacheTechnical($get);
         $ttl = $technical_data['ttl'];
         $data = $technical_data['data'];
-        if($ttl > $now)
-        {
+        if ($ttl > $now) {
             return self::getCache($data);
-        }else{
+        } else {
             return false;
         }
-        
     }
 
     public static function flush_cache($tags = [], $key = false)
@@ -99,7 +100,7 @@ class TagCache
     private static function createFolderStructure($tags, $key)
     {
         $path = self::createFolderStructureOnly($tags);
-        return self::releaseFolder($path) . DIRECTORY_SEPARATOR . md5($key)."-MM";
+        return self::releaseFolder($path) . DIRECTORY_SEPARATOR . md5($key) . "-MM";
     }
 
     private static function neuralyzer($data, $decode = false)
@@ -118,8 +119,8 @@ class TagCache
         File::put($path, $store);
         // return $data();
         $return = self::technicallyGettingCacheData($path, $now);
-        if(!$return){
-            return $data(); 
+        if (!$return) {
+            return $data();
         }
         return $return;
     }
