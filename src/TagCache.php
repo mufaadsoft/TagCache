@@ -141,9 +141,9 @@ class TagCache
     private static function cacheTechnical($data)
     {
         try{
-            preg_match("/([0-9]+)([a-z0-9]:)/", $data, $extraction);
+            preg_match("/([0-9]+)([a-zA-Z0-9]:)/", $data, $extraction);
             $get_ttl = !empty($extraction[1]) ? $extraction[1] : 0;
-            $encoded_data = preg_replace("/([0-9]+)([a-z0-9]:)/", $extraction[2], $data, 1);
+            $encoded_data = preg_replace("/([0-9]+)([a-zA-Z0-9]:)/", $extraction[2], $data, 1);
             return ["ttl" => $get_ttl, "data" => $encoded_data];
         }catch(Exception $e){
         return ["ttl" => 0, "data" => ""]; 
