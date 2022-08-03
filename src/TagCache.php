@@ -112,15 +112,19 @@ class TagCache
 
     private static function saveCache($path, $data, $ttl, $now)
     {
-        $neuralyzer = self::neuralyzer($data());
-        $store = $ttl . $neuralyzer;
-        File::put($path, $store);
-        // return $data();
-        $return = self::technicallyGettingCacheData($path, $now);
-        if (!$return) {
+        try {
+            $neuralyzer = self::neuralyzer($data());
+            $store = $ttl . $neuralyzer;
+            File::put($path, $store);
+            // return $data();
+            $return = self::technicallyGettingCacheData($path, $now);
+            if (!$return) {
+                return $data();
+            }
+            return $return;
+        } catch (Exception $e) {
             return $data();
         }
-        return $return;
     }
 
     private static function getCache($data)
@@ -140,13 +144,13 @@ class TagCache
 
     private static function cacheTechnical($data)
     {
-        try{
+        try {
             preg_match("/([0-9]+)([a-zA-Z0-9]:)/", $data, $extraction);
             $get_ttl = !empty($extraction[1]) ? $extraction[1] : 0;
             $encoded_data = preg_replace("/([0-9]+)([a-zA-Z0-9]:)/", $extraction[2], $data, 1);
             return ["ttl" => $get_ttl, "data" => $encoded_data];
-        }catch(Exception $e){
-        return ["ttl" => 0, "data" => ""]; 
+        } catch (Exception $e) {
+            return ["ttl" => 0, "data" => ""];
         }
     }
 }
