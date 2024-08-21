@@ -1,5 +1,5 @@
 # Laravel Tag Caching
-## Version 0.9.2
+## Version 0.9.4
 
 
 This library is build to fulfill the requirement of tag caching system
